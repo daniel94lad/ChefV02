@@ -82,7 +82,7 @@ const Content =()=>{
                     <Col sm='12' md={{size:8,offset:4}} className="Login_Col_Layout" align="center">
                         <Label check className="Check_Container">
                             <Input type="checkbox" style={{transform:'scale(2)',marginLeft:'30px'}}/>
-                            <div className="Check_Terminos">He leido y acepto <br/> <Link>Terminos y Condiciones</Link></div>
+                            <div className="Check_Terminos">He leido y acepto <br/> <Link to="/">Terminos y Condiciones</Link></div>
                         </Label>
                     </Col>
                     <Col sm='12' md={{size:6,offset:3}} align="center" style={{marginTop:'20px', marginBottom:'30px'}}>

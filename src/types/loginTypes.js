@@ -1,3 +1,3 @@
-export const TRAER_TODO = 'login_traer_todo';
+export const BUSCAR = 'login_buscar';
 export const CARGANDO = 'login_cargando';
 export const ERROR = 'login_error';

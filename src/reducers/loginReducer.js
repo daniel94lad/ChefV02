@@ -1,17 +1,19 @@
-import {TRAER_TODO,CARGANDO,ERROR} from '../types/loginTypes';
+import {BUSCAR,CARGANDO,ERROR} from '../types/loginTypes';
 
 const INITIAL_STATE={
-    cargando:false,
+    users:[],
+    cargando:false, 
     error:''
 }
-export default(state = INITIAL_STATE,action)=>{
+export default(state = INITIAL_STATE,action) =>{
     switch(action.type){
-        case TRAER_TODO:
-            return{
-                ...state,
-                cargando:false,
-                error:''
-            };
+        case BUSCAR:
+            
+            return {...state,
+                cargando: false,
+                users: action.payload,
+            }
+            
         case CARGANDO:
             return{
                 ...state,

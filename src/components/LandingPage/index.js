@@ -23,6 +23,13 @@ class LandingPage extends Component {
                             </Link>
                         </div>
                     </div>
+                    <div className="row">
+                        <div className="col Menu">
+                            <Link to ="/pinterest">
+                                Pinterest
+                            </Link>
+                        </div>
+                    </div>
                 </nav>
             </div>
         )

@@ -9,10 +9,15 @@ import TW from '../../images/twitter.svg';
 import GH from '../../images/github.svg'; 
 
 import {Button,Container,Row,Col,Form,FormGroup,Input} from 'reactstrap';
+import * as loginActions from '../../actions/loginActions';
 
-const Content =()=>{
+
+const Content =(props)=>{
     const nuestrocolor = '#fa0f00';
+    console.log(props)
+    
     return (
+       
         <div>
             <h1 className="titles">Login</h1>
             <Container>
@@ -26,7 +31,7 @@ const Content =()=>{
                 <Row>
                     <Col sm='12' md={{size:8,offset:2}} align='center'>
                         <img className="User_image"
-                        src="https://www.gravatar.com/avatar/d57a8be8cb9219609905da25d5f3e50a?d=identicon"
+                        src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
                         alt="Userimage"
                         style={{border:`10px solid ${nuestrocolor}`}}
                         />
@@ -127,4 +132,4 @@ const Content =()=>{
 const mapStateToProps=(reducers)=>{
     return reducers.loginReducer
 }
-export default connect(mapStateToProps)(Content)
+export default connect(mapStateToProps,loginActions)(Content)
