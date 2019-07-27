@@ -9,16 +9,17 @@ export const buscar =() => async (dispatch)=>{
         const respuesta = await axios.get(`https://rickandmortyapi.com/api/character/`)
         const answer = {...respuesta};
         const an2= answer.data
-        // const an3 = {...an2.results}
 
-        const tareas ={};
-        an2.results.map((tar)=>(tareas[tar.id]={...tareas[tar.id],[tar.id]:{...tar}}))
-        
+        let users = an2.results.map((item)=>({
+            name:item.name,
+            id:item.id,
+            image:item.image
+        }))
         dispatch({
             type: BUSCAR,
-            payload: tareas
+            payload: users
         })
-        console.log(tareas)
+        console.log(users)
 
     }catch(error){
         

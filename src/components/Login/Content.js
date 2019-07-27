@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
@@ -13,9 +13,21 @@ import * as loginActions from '../../actions/loginActions';
 
 
 const Content =(props)=>{
+    let [user,setUser] = useState(null)
     const nuestrocolor = '#fa0f00';
     console.log(props)
-    
+    function _onChangeUser(event){
+        // setUser(event.target.value)
+        let userObj = props.users.find(item=>{
+            if(item.name === event.target.value){
+                return true
+            }else{
+                return false
+            }
+        })
+        console.log(userObj)
+        setUser(userObj)
+    }
     return (
        
         <div>
@@ -31,7 +43,7 @@ const Content =(props)=>{
                 <Row>
                     <Col sm='12' md={{size:8,offset:2}} align='center'>
                         <img className="User_image"
-                        src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+                        src={user ? user.image : "https://rickandmortyapi.com/api/character/avatar/1.jpeg"}
                         alt="Userimage"
                         style={{border:`10px solid ${nuestrocolor}`}}
                         />
@@ -49,6 +61,7 @@ const Content =(props)=>{
                                 id="Username" 
                                 placeholder="Username" 
                                 style={{ fontSize:'35px',borderRadius:'25px'}}
+                                onChange={_onChangeUser}
                                 />
                                 <Input 
                                 className="input-form" 

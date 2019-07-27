@@ -1,18 +1,36 @@
-import {BUSCAR} from '../types/pinterestTypes';
+import {FETCH_USERS_PENDING,FETCH_USERS_SUCCESS,FETCH_USERS_FAIL} from '../actions/pinterestActions';
 
-const INITIAL_STATE={
-    users: [],
-    cargando:false, 
-    error:''
+const initialState = {
+    pending:false,
+    users:[],
+    error:null
+
 }
-export default function (state = INITIAL_STATE,action) {
+
+export function pinterestReducer(state = initialState,action){
     switch(action.type){
-        case BUSCAR:
-            return {
+        case FETCH_USERS_PENDING:
+            return{
                 ...state,
-                users: action.payload.data
-                }
+                pending:true
+            }
+        case FETCH_USERS_SUCCESS:
+            return{
+                ...state,
+                pending:false,
+                users:action.payload
+            }
+        case FETCH_USERS_FAIL:
+            return{
+                ...state,
+                pending:false,
+                error:action.error
+            }
         default:
             return state;
     }
 }
+
+export const getUsers = state => state.users;
+export const getUsersPending = state => state.pending;
+export const getUsersError = state => state.error;
